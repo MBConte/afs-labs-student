@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: db-deployment
+  namespace: mconte
+  labels:
+    app: db
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  minReadySeconds: 20
+  selector:
+    matchLabels:
+      app: db
+  template:
+    metadata:
+      labels:
+        app: db
+    spec:
+      containers:
+      - envFrom:        
+        - secretRef:
+            name: db-secret
+        name: db-deployment
+        image: harbor.dev.afsmtddso.com/mconte-harbot-project/db@sha256:d41e79b35b98b4545201aca6f0133b4bcfb4378dfd24ce3c215a9e915a841c44
+        ports:
+        - containerPort: 5432
