@@ -1,21 +1,28 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nginx-deployment
+  name: app-deployment
+  namespace: mconte
   labels:
-    app: nginx
+    app: app
 spec:
-  replicas: 3
+  replicas: 1
+  strategy:
+    type: Recreate
+  minReadySeconds: 20
   selector:
     matchLabels:
-      app: nginx
+      app: app
   template:
     metadata:
       labels:
-        app: nginx
+        app: app
     spec:
       containers:
-      - name: nginx
-        image: nginx:1.14.2
+      - envFrom:        
+        - secretRef:
+            name: db-secret
+        name: app-deployment
+        image: harbor.dev.afsmtddso.com/mconte-harbot-project/app@sha256:acab8fc2492f80e5fe7a0d1b786e216b0ef61b6a8c647d52a442869327fe54d3
         ports:
-        - containerPort: 80
+        - containerPort: 5000
