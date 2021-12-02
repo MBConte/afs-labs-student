@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
       - name: db-deployment
-        image: harbor.dev.afsmtddso.com/mconte-harbot-project/db@sha256:98305a786e20fb084df9e6f852c6955fc8f8378a8d7bab6ab9b1eb345b2b31f9
+        image: harbor.dev.afsmtddso.com/mconte-harbot-project/db:24c9a11-166ec96
         ports:
         - containerPort: 5432
           envFrom:
