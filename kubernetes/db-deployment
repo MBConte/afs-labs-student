@@ -19,10 +19,10 @@ spec:
         app: db
     spec:
       containers:
+      - envFrom:
+        - secretRef:
+            name: db-secret
       - name: db-deployment
         image: harbor.dev.afsmtddso.com/mconte-harbot-project/db:24c9a11-166ec96
         ports:
         - containerPort: 5432
-          envFrom:
-          - secretRef:
-              name: db-secret
