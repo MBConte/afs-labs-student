@@ -23,6 +23,6 @@ spec:
         - secretRef:
             name: db-secret
       - name: db-deployment
-        image: harbor.dev.afsmtddso.com/mconte-harbot-project/db:24c9a11-166ec96
+        image: harbor.dev.afsmtddso.com/mconte-harbot-project/db@sha256:d41e79b35b98b4545201aca6f0133b4bcfb4378dfd24ce3c215a9e915a841c44
         ports:
         - containerPort: 5432
