@@ -23,6 +23,6 @@ spec:
         - secretRef:
             name: db-secret
         name: app-deployment
-        image: harbor.dev.afsmtddso.com/mconte-harbot-project/app@sha256:acab8fc2492f80e5fe7a0d1b786e216b0ef61b6a8c647d52a442869327fe54d3
+        image: harbor.dev.afsmtddso.com/mconte-harbot-project/app:6cd4fcc-1bd1c11
         ports:
         - containerPort: 5000
